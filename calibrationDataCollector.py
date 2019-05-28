@@ -23,7 +23,7 @@ cap = cv2.VideoCapture(0)
 allCorners = []
 allIds = []
 decimator = 0
-for i in range(1):
+for i in range(100):
 
     ret,frame = cap.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -44,7 +44,7 @@ for i in range(1):
 
 imsize = gray.shape
 
-calibrationData = [allCorners, allIds, board, imsize]
+calibrationData = [allCorners, allIds, imsize]
 pickle.dump(calibrationData, open( "calibrationData.p", "wb" ))
 
 cap.release()

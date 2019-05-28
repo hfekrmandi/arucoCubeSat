@@ -12,16 +12,18 @@ import pickle
 calibrationData = pickle.load( open( "calibrationData.p", "rb" ) )
 allCorners = calibrationData[0]
 allIds = calibrationData[1]
-board = calibrationData[2]
-imsize = calibrationData[3]
+imsize = calibrationData[2]
+
+dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
+board = cv2.aruco.CharucoBoard_create(5,8,.025,.0125,dictionary)
 
 print(allIds)
 
 print("calibrating now")
-#startTime = time.time()
+startTime = time.time()
 #print(startTime)
 
-'''
+
 try:
     print("something else")
     cal = cv2.aruco.calibrateCameraCharuco(allCorners,allIds,board,imsize,None,None)
@@ -31,8 +33,8 @@ except:
     raise
 else:
     print("triumph") # huge success, hard to overstate my satisfaction
-    #deltaTime = time.time() - startTime
-    #print("calibration took " + str(deltaTime) + " seconds")
+    deltaTime = time.time() - startTime
+    print("calibration took " + str(deltaTime) + " seconds")
     pickle.dump(cal, open( "calibrationSave.p", "wb" ))
     #retval, cameraMatrix, distCoeffs, rvecs, tvecs = cal
 '''
@@ -40,4 +42,5 @@ else:
 cal = cv2.aruco.calibrateCameraCharuco(allCorners,allIds,board,imsize,None,None)
 print("triumph") # huge success, hard to overstate my satisfaction
 pickle.dump(cal, open( "calibrationSave.p", "wb" ))
+'''
 
