@@ -23,7 +23,7 @@ cap = cv2.VideoCapture(0)
 allCorners = []
 allIds = []
 decimator = 0
-for i in range(1200):
+for i in range(400):
 
     ret,frame = cap.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)

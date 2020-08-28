@@ -43,7 +43,7 @@ DICT_7X7_50
 
 
 # tag restricted to 6x6 blocks plus 1 block thick black perimeter
-aruco_dict = aruco.Dictionary_get(aruco.DICT_6X6_250)
+aruco_dict = aruco.Dictionary_get(aruco.DICT_4X4_250)
 
 # second parameter is id number, last parameter is total image size
 img = aruco.drawMarker(aruco_dict, value, 640)
